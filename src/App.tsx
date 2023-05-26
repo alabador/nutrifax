@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Info from './pages/Info'
 
 
 function App() {
   const [food, setFood] = useState<string>('apple')
-  const [result, setResult] = useState([])
+  const [result, setResult] = useState({})
   
   useEffect(() => {
     async function getData() {
@@ -22,9 +25,10 @@ function App() {
   }, [])
 
   return (
-    <>
-      
-    </>
+    <Routes>
+      <Route path='/' element={<Home />}/>
+      <Route path='/info' element={<Info />}/>
+    </Routes>
   )
 }
 
