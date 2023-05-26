@@ -1,13 +1,10 @@
-import { Center, Container, Input } from "@chakra-ui/react";
+import { Container, Input } from "@chakra-ui/react";
+
 
 export default function Search() {
     return (
-        <>
-            <Container maxWidth="lg">
-                <Center as="section">
-                    <Input placeholder="Search for food..."/>
-                </Center>
-            </Container>
-        </>
+        <Container as="section" maxWidth="4xl" py="20px"> 
+            <Input type='text' placeholder="Search for food..."/>
+        </Container>
     )
 }
