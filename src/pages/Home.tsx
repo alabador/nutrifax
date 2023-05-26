@@ -3,12 +3,17 @@ import Search from "../components/Search";
 import Navbar from "../components/Navbar";
 import Results from "../components/Results";
 
-export default function Home() {
+export interface ResultProps {
+    common: []
+    branded: []
+}
+
+export default function Home(props:ResultProps) {
     return (
         <>
             <Navbar />
             <Search />
-            <Results />
+            <Results common={props.common} branded={props.branded}/>
         </>
     )
 }
