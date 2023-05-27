@@ -4,19 +4,25 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Info from './pages/Info'
 
-
-interface dataState {
-  common: []
-  branded: []
+export interface Common {
+  common_type: any,
+  food_name: string,
+  locale: string,
+  photo: {
+    thumb: string,
+  }
+  serving_qty: number,
+  serving_unity: string,
+  tag_id: string,
+  tag_name: string,
 }
+
 
 function App() {
   
   const [food, setFood] = useState<string>('apple')
-  const [result, setResult] = useState<dataState>({
-    common: [],
-    branded: []
-  })
+  const [common, setCommon] = useState<Common[]>([])
+  const [branded, setBranded] = useState([])
   
   useEffect(() => {
     async function getData() {
@@ -27,8 +33,10 @@ function App() {
         },
       })
       const data = await res.json()
-      setResult(data)
+      setCommon(data.common)
+      setBranded(data.branded)
       console.log(data.common)
+      console.log(data.branded)
     }
     getData()
   }, [])
@@ -37,7 +45,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Home common={result.common} branded={result.branded}/>}/>
+      <Route path='/' element={<Home common={common} />}/>
       <Route path='/info' element={<Info />}/>
     </Routes>
   )
