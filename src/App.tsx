@@ -21,6 +21,11 @@ export interface Common {
 function App() {
   
   const [food, setFood] = useState<string>('apple')
+
+  const handleChange = () => {
+    console.log('test')
+  }
+
   const [common, setCommon] = useState<Common[]>([])
   const [branded, setBranded] = useState([])
   
@@ -45,7 +50,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Home common={common} />}/>
+      <Route path='/' element={<Home common={common} handleChange={handleChange}/>}/>
       <Route path='/info' element={<Info />}/>
     </Routes>
   )

@@ -7,14 +7,14 @@ interface CardProps {
 
 export default function ResultCard({foodName, image}:CardProps) {
     return (
-        <Card>
+        <Card mb="8px">
             <CardBody>
                 <Flex justify="space-between" align="center">
                     <Text>{foodName}</Text>
                     <Image
                         src={image}
                         borderRadius='lg'
-                        height="50px"
+                        height="30px"
                     />
                 </Flex>
             </CardBody>
