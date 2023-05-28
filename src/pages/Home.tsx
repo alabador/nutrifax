@@ -5,15 +5,16 @@ import Results from "../components/Results";
 import { Common } from "../App";
 
 interface Props {
-    common: Common[],
+    common: Common[];
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    food: string;
 }
 
 export default function Home(props:Props) {
     return (
         <>
             <Navbar />
-            <Search />
+            <Search handleChange={props.handleChange} food={props.food}/>
             <Results common={props.common} />
         </>
     )
