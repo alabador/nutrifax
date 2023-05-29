@@ -27,7 +27,7 @@ function App() {
     event.target.value.trim().length !== 0 
       ? setFood(event.target.value)
       : setFood("a")
-      //figure out how to conditionally render placeholder if empty input
+      
   }
 
   const [common, setCommon] = useState<Common[]>([])
