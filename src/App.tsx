@@ -20,13 +20,17 @@ export interface Common {
 
 function App() {
   
-  const [food, setFood] = useState<string>('apple')
+  const [food, setFood] = useState<string>('')
+  const [foodQuery, setFoodQuery] = useState<string>('a')
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('test')
-    event.target.value.trim().length !== 0 
-      ? setFood(event.target.value)
-      : setFood("a")
+    setFood(event.target.value);
+    
+    
+    if (food.trim().length !== 0) {    
+      setFoodQuery(event.target.value)
+
+    } 
       
   }
 
@@ -35,7 +39,7 @@ function App() {
   
   useEffect(() => {
     async function getData() {
-      const res = await fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${food}`, {
+      const res = await fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${foodQuery}`, {
         headers: {
           'x-app-id': `${import.meta.env.VITE_APP_ID}`,
           'x-app-key': `${import.meta.env.VITE_APP_KEY}`
@@ -43,12 +47,14 @@ function App() {
       })
       const data = await res.json()
       setCommon(data.common)
-      setBranded(data.branded)
+      console.log(common)
+      // setBranded(data.branded)
     }
-    setTimeout(() => {
+    let timer1 = setTimeout(() => {
       getData()
-    }, 1000)
-  }, [food])
+    }, 700)
+    return () => clearTimeout(timer1)
+  }, [foodQuery])
 
 
 

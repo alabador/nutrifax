@@ -11,7 +11,7 @@ export default function Results(props:Results) {
     const searchResults:Array<Common> = props.common;
     return (
         <Container as="section" maxWidth="4xl" py="20px">
-            {searchResults.map((result, index) => {
+            {props.common ? searchResults.map((result, index) => {
                 return (
                 <ResultCard 
                     key={result.food_name + index}
@@ -19,7 +19,7 @@ export default function Results(props:Results) {
                     image={result.photo.thumb} 
                 />
                 )
-            })}
+            }) : <h2>Empty</h2>}
         </Container>
     )
 }
