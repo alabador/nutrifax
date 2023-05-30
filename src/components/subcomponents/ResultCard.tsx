@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, Flex, Image, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react";
+import { Card, CardBody, Flex, Image, Text, useDisclosure } from "@chakra-ui/react";
 import './ResultCard.css'
 import InfoModal from "./InfoModal";
 
@@ -10,7 +10,7 @@ interface CardProps {
 export default function ResultCard({foodName, image}:CardProps) {  
 
     const {isOpen, onOpen, onClose} = useDisclosure();
-
+    //next todo: get onClick to fetch new data from api (detailed info), display on modal
 
     return (
         <>

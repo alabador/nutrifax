@@ -46,8 +46,7 @@ function App() {
         },
       })
       const data = await res.json()
-      setCommon(data.common)
-      console.log(common)
+      setCommon(data.common.slice(0,5))
       // setBranded(data.branded)
     }
     let timer1 = setTimeout(() => {
