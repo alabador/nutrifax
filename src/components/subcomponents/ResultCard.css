@@ -1,0 +1,8 @@
+:root {
+    --accent-green: rgb(102, 153, 117);
+}
+
+.resultCard:hover {
+    background-color: var(--accent-green);
+    cursor: pointer;
+}
