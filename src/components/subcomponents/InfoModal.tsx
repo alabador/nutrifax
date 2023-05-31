@@ -1,4 +1,4 @@
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text } from "@chakra-ui/react";
+import { Button, Image, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 interface ModalProps {
@@ -8,10 +8,40 @@ interface ModalProps {
     onClose: () => void
 }
 
+interface detailProps {
+    food_name: string,
+    nf_calories?: number,
+    nf_cholesterol?: number,
+    nf_dietary_fiber?: number,
+    nf_protein?: number,
+    nf_sodium?: number,
+    nf_sugars?: number,
+    nf_total_carbohydrate?: number,
+    serving_weight_grams?: number,
+    photo: {
+        highres: string,
+        thumb: string,
+    }
+}
+
 
 export default function InfoModal(props:ModalProps) {  
 
-    const [details, setDetails] = useState([])
+    const [details, setDetails] = useState<detailProps>({
+        food_name: "apple",
+        nf_calories: 0,
+        nf_cholesterol: 0,
+        nf_dietary_fiber: 0,
+        nf_protein: 0,
+        nf_sodium: 0,
+        nf_sugars: 0,
+        nf_total_carbohydrate: 0,
+        serving_weight_grams: 0,
+        photo: {
+            highres: "test",
+            thumb: "test",
+        }
+    })
     
     useEffect(() => {
         async function getDetails(data = {query:props.foodName}) {
@@ -25,7 +55,7 @@ export default function InfoModal(props:ModalProps) {
                 body: JSON.stringify(data)
               })
             const responseData = await res.json()
-            setDetails(responseData)
+            setDetails(responseData.foods[0])
             console.log(details)
         }
         getDetails()
@@ -38,7 +68,8 @@ export default function InfoModal(props:ModalProps) {
                 <ModalContent>
                     <ModalHeader>{props.foodName}</ModalHeader>
                     <ModalBody>
-                        <Text>test text</Text>
+                        <Text>Calories: {details.nf_calories}</Text>
+                        <Image src={details.photo.highres}/>
                     </ModalBody>
                     <ModalFooter gap={2}>
                         <Button onClick={props.onClose}>Close</Button>
