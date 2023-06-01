@@ -11,7 +11,7 @@ interface CardProps {
 export default function ResultCard({foodName, image}:CardProps) {  
 
     const {isOpen, onOpen, onClose} = useDisclosure();
-    const {clicked, setClicked} = useState<Boolean>(false);
+    // const {clicked, setClicked} = useState<Boolean>(false);
 
 
     return (

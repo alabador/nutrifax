@@ -1,5 +1,6 @@
 import { Button, Image, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import FoodDetails from "./FoodDetails";
 
 interface ModalProps {
     foodName: string,
@@ -8,7 +9,7 @@ interface ModalProps {
     onClose: () => void
 }
 
-interface detailProps {
+export interface detailProps {
     food_name: string,
     nf_calories?: number,
     nf_cholesterol?: number,
@@ -68,8 +69,11 @@ export default function InfoModal(props:ModalProps) {
                 <ModalContent>
                     <ModalHeader>{props.foodName}</ModalHeader>
                     <ModalBody>
-                        <Text>Calories: {details.nf_calories}</Text>
-                        <Image src={details.photo.highres}/>
+                        <FoodDetails
+                            food_name={details.food_name} 
+                            nf_calories={details.nf_calories} 
+                            photo={details.photo} 
+                        />
                     </ModalBody>
                     <ModalFooter gap={2}>
                         <Button onClick={props.onClose}>Close</Button>
