@@ -71,7 +71,14 @@ export default function InfoModal(props:ModalProps) {
                     <ModalBody>
                         <FoodDetails
                             food_name={details.food_name} 
-                            nf_calories={details.nf_calories} 
+                            nf_calories={details.nf_calories}
+                            nf_cholesterol = {details.nf_cholesterol}
+                            nf_dietary_fiber = {details.nf_dietary_fiber}
+                            nf_protein = {details.nf_protein}
+                            nf_sodium = {details.nf_sodium}
+                            nf_sugars = {details.nf_sugars}
+                            nf_total_carbohydrate = {details.nf_total_carbohydrate}
+                            serving_weight_grams = {details.serving_weight_grams} 
                             photo={details.photo} 
                         />
                     </ModalBody>
