@@ -84,7 +84,6 @@ export default function InfoModal(props:ModalProps) {
                     </ModalBody>
                     <ModalFooter gap={2}>
                         <Button onClick={props.onClose}>Close</Button>
-                        <Button colorScheme="green">Add to Calorie Count</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
