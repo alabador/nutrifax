@@ -35,7 +35,7 @@ function App() {
   }
 
   const [common, setCommon] = useState<Common[]>([])
-  const [branded, setBranded] = useState([])
+  // const [branded, setBranded] = useState([])
   
   useEffect(() => {
     async function getData() {

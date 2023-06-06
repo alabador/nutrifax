@@ -1,7 +1,6 @@
 import { Card, CardBody, Flex, Image, Text, useDisclosure } from "@chakra-ui/react";
 import './ResultCard.css'
 import InfoModal from "./InfoModal";
-import { useState } from "react";
 
 interface CardProps {
     foodName: string,

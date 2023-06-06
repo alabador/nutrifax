@@ -25,14 +25,6 @@ export const dailyValues = {
 
 export default function FoodDetails(props:detailProps) {
 
-    const options = {
-        scales: {
-            y: {
-                max: props.nf_sodium ?? 0 + 50
-            }
-        }
-    }
-
     const data = {
         labels: ['Carbohydrates', 'Cholesterol', 'Fiber', 'Protein', 'Sodium', 'Sugar'],
         datasets: [
