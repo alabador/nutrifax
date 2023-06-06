@@ -25,17 +25,25 @@ export const dailyValues = {
 
 export default function FoodDetails(props:detailProps) {
 
+    const options = {
+        scales: {
+            y: {
+                max: props.nf_sodium ?? 0 + 50
+            }
+        }
+    }
+
     const data = {
         labels: ['Carbohydrates', 'Cholesterol', 'Fiber', 'Protein', 'Sodium', 'Sugar'],
         datasets: [
             {
-            label: '% of Daily Recommended Value',
-            data: [ (props.nf_total_carbohydrate ?? 0 / dailyValues.carbohydrates),
-                (props.nf_cholesterol ?? 0 / dailyValues.cholesterol),
-                (props.nf_dietary_fiber ?? 0 / dailyValues.fiber),
-                (props.nf_protein ?? 0 / dailyValues.protein),
-                (props.nf_sodium ?? 0 /dailyValues.sodium),
-                (props.nf_sugars ?? 0 / dailyValues.sugars),
+            label: `% Daily Value per 2000 Calories`,
+            data: [ (props.nf_total_carbohydrate! / dailyValues.carbohydrates),
+                (props.nf_cholesterol! / dailyValues.cholesterol),
+                (props.nf_dietary_fiber! / dailyValues.fiber),
+                (props.nf_protein! / dailyValues.protein),
+                (props.nf_sodium! / dailyValues.sodium),
+                (props.nf_sugars! / dailyValues.sugars),
             ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
