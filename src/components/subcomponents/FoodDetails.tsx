@@ -74,24 +74,31 @@ export default function FoodDetails(props:detailProps) {
                     <ListItem>
                         {props.nf_calories && <Text className="flex-between">Calories: <span>{props.nf_calories}</span></Text>}
                     </ListItem>
-                    <ListItem>
-                        {props.nf_cholesterol && <Text className="flex-between">Cholesterol: <span>{props.nf_cholesterol}g</span></Text>}
-                    </ListItem>
-                    <ListItem>
-                        {props.nf_sodium && <Text className="flex-between">Sodium: <span>{props.nf_sodium}mg</span></Text>}
-                    </ListItem>
-                    <ListItem>
-                        {props.nf_sugars && <Text className="flex-between">Sugar: <span>{props.nf_sugars}g</span></Text>}
-                    </ListItem>
-                    <ListItem>
-                        {props.nf_total_carbohydrate && <Text className="flex-between">Carbohydrates: <span>{props.nf_total_carbohydrate}g</span></Text>}
-                    </ListItem>
-                    <ListItem>
-                        {props.nf_protein && <Text className="flex-between">Protein: <span>{props.nf_protein}g</span></Text>}
-                    </ListItem>
-                    <ListItem>
-                        {props.nf_dietary_fiber && <Text className="flex-between">Fiber: <span>{props.nf_dietary_fiber}g</span></Text>}
-                    </ListItem>
+
+                    {props.nf_total_carbohydrate ? <ListItem>
+                         <Text className="flex-between">Carbohydrates: <span>{props.nf_total_carbohydrate}g</span></Text>
+                    </ListItem> : null}
+                    
+                    {props.nf_cholesterol ? <ListItem>
+                         <Text className="flex-between">Cholesterol: <span>{props.nf_cholesterol}g</span></Text>
+                    </ListItem> : null}
+
+                    {props.nf_dietary_fiber ? <ListItem>
+                        <Text className="flex-between">Fiber: <span>{props.nf_dietary_fiber}g</span></Text>
+                    </ListItem> : null}    
+
+                    {props.nf_protein ? <ListItem>
+                        <Text className="flex-between">Protein: <span>{props.nf_protein}g</span></Text>
+                    </ListItem> : null}
+                    
+                    {props.nf_sodium ? <ListItem>
+                        <Text className="flex-between">Sodium: <span>{props.nf_sodium}g</span></Text>
+                    </ListItem> : null}
+
+                    {props.nf_sugars ? <ListItem>
+                        <Text className="flex-between">Sugar: <span>{props.nf_sugars}g</span></Text>
+                    </ListItem> : null}
+
                 </List>
             </Box>
             <Box className="flex-center">
