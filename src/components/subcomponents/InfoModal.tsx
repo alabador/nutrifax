@@ -59,7 +59,9 @@ export default function InfoModal(props:ModalProps) {
             setDetails(responseData.foods[0])
             console.log(details)
         }
-        getDetails()
+        if(props.isOpen) {
+            getDetails()
+        }
     }, [props.isOpen])
 
     return(
