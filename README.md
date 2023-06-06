@@ -8,7 +8,7 @@ A web app to search for nutritional values of food, built using React and TypeSc
 https://nutrifax.netlify.app/
 ## Screenshots
 
-![App Screenshot](./screenshot.png)
+![App Screenshot](/public/screenshot.png)
 
 
 ## Tech Stack
